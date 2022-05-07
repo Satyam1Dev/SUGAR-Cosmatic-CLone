@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      
+      * {
+      color: #888888;
+      font-family: monospace;
+      font-size: 16px;
+          }
+          .wrapper{
+     
+      padding: 70px;
+      width: 50%;
+    
+     height:auto;
+      padding:50px 25px 50px; 
+      box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      margin: auto;
+      text-align: start;
+      background-image: url(https://in.sugarcosmetics.com/Login_bg.svg);
+  }
+  input.name{
+      padding: 13px;
+      width: 70%;
+      background-color: aliceblue;
+      border: solid 1px #dc9ccd;
+      border-radius: 8px;
+  }
+  input.email{
+      padding: 13px;
+      width: 70%;
+      background-color: aliceblue;
+      border: solid 1px #dc9ccd;
+      border-radius: 8px;
+     
+  }
+  input.password{
+    padding: 13px;
+      width: 70%;
+      background-color: aliceblue;
+      border: solid 1px #dc9ccd;
+      border-radius: 8px;
+  }
+ 
+  .signin {
+      width: 70%;
+      text-align: inherit;
+      margin-left: 189px;
+  }
+  
+  p.forget {
+      font-size: 20px;
+      color: #898c8b;
+     
+  }
+  a {
+      text-decoration: none;
+  }
+  button.btn {
+      padding: 13px;
+      width: 20%;
+      background-color: #d89ccf;
+      color: aliceblue;
+      font-size: 15px;
+      margin-left: 80px;
+      border: solid 1px #e09dcd;
+      cursor: pointer;
+  }
+  .account-exist {
+      padding-top: 20px;
+     
+  }
+  h5 {
+    color: #7a7678;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+a#login {
+    font-size: 17px;
+    color: #c57cf6;
+}
+
+
+
+
+.headline h1{
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+.para{
+    text-align: center;
+    /* font-size: 18px;
+    width:300px;
+    /* margin-left: 90px; */
+    /* margin-bottom: 75px; */ 
+}
+.wrapper .form-group input:focus{
+  outline: none;
+}
+
+/* .headline{
+   margin-bottom:50px ;
+} */
+.signup>div{
+    margin-bottom: 10px;
+}    
+
+
+.account-exist{
+    text-align: center;
+    margin-top: 20px;
+}
+
+small{
+    color:red;
+    text-align: center;
+}
+
+.close{
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    margin-top: -45px;
+}
+ 
+
+
+    </style>
+   
+    
+</head>
+   
+<body>
+    <div class="wrapper"> 
+      <h2 class="close">X</h2>
+         <div class="headline">
+             <h1>Sign up</h1>
+             <div class="para">You can buy SugarCosmetic products on your own wish</div>
+         </div>
+         <form class="form" name="myForm">
+            <div class="signup">
+               <div class="form-group">
+                  <h5>FULL NAME</h5>
+                  <input placeholder="Enter your full name" type="text" class="name">
+               </div>
+
+               <div class="form-group">
+                <h5>EMAIL</h5>   
+                <input placeholder="name@email.com" type="email" class="email">
+              </div>
+              
+              <div class="form-group">
+                <h5>PASSWORD</h5>
+                <input placeholder="Create password" type="password" class="password">
+                <h5>Between 8 and 72 characters</h5>
+              </div>
+
+              <button type="submit" class="btn">Signup</button>
+              
+              <div class="account-exist">
+                Already on SugarCosmetic? <a href="signin.html" id="login">Log in</a>
+              </div>
+            </div>
+
+         </form>
+    </div>
+
+  
+</body>
+</html>
+
+<script>
+  document.querySelector(".form").addEventListener("submit",addData);
+
+var userData = JSON.parse(localStorage.getItem("userDatabase")) || [];
+console.log(userDatabase)
+function addData(event){
+    event.preventDefault();
+
+      var name = document.querySelector(".name").value;
+      var email = document.querySelector(".email").value;
+      var password = document.querySelector(".password").value;
+
+    if(name==""){
+        alert("username should not be empty");
+    } 
+    if(name.length<=2 && name.length>0){
+        alert("username is too short");
+    }
+    else if(email.length==""){
+        alert("please fill your email");
+    }
+    else if(email.length<=10){
+        alert("please fill a valid email");
+    }
+    else if(password==""){
+        alert("please fill password");
+    }
+    else if(password.length<=6)
+    {
+        alert("password length must be minimum 8 character");
+    }
+    else{
+
+        var userObj = {
+          name:name,
+          email:email,
+          password:password,
+        };
+      
+        userData.push(userObj);
+       // console.log(userData);
+        localStorage.setItem("userDatabase", JSON.stringify(userData));
+
+      alert("Register successfully");
+      window.location.href="signin.html";
+
+    }
+ }
+   document.querySelector(".close").addEventListener("click",function(){
+    document.querySelector(".wrapper").style.display="none"
+    window.location.href="index.html"
+})
+
+</script>

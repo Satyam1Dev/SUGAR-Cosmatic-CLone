@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+      color: #888888;
+    font-family: monospace;
+    font-size: 16px;
+        }
+        div#img {
+            box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
+         width: 55%;
+    height: 500px;
+    margin: auto;
+    text-align: start;
+    background-image: url(https://in.sugarcosmetics.com/Login_bg.svg);
+}
+a#signup {
+    color: #cf9ad1;
+}
+div#img .form-group input:focus{
+  outline: none;
+}
+
+input#user {
+    padding: 13px;
+    width: 85%;
+    background-color: aliceblue;
+    border: solid 1px #dc9ccd;
+    border-radius: 8px;
+}
+input#pass{
+    padding: 13px;
+    width: 85%;
+    background-color: aliceblue;
+    border: solid 1px #dc9ccd;
+    border-radius: 8px;
+   
+}
+h1 {
+    font-size: 35px;
+}
+.headline {
+        
+    text-align: center;
+    color: #888888;   
+    margin-top: -40px;
+}
+.signin {
+    width: 65%;
+    text-align: inherit;
+    margin-left: 90px;
+}
+
+p.forget {
+    font-size: 20px;
+    color: #898c8b;
+    /* text-decoration: none; */
+}
+a {
+    text-decoration: none;
+}
+button.btn {
+    padding: 10px;
+    width: 20%;
+    background-color: #fba2c6;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    border: solid 1px #fba2c6;
+    cursor: pointer;
+}
+.account-exist {
+    padding-top: 20px;
+   
+}
+h2.close {
+    margin: 30px;
+    /* padding: 40px; */
+    padding-left: -4px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+      </style>
+  
+</head>
+<body>
+    <div clas="wrapper" id="img">
+        <h2 class="close">X</h2>
+        <div class="headline">
+            <h1>Welcome back</h1>
+        </div>
+        <form class="form" method="post" action="#">
+            <div class="signin">
+                <div class="form-group">
+                    <h5>EMAIL</h5>   
+                    <input placeholder="name@email.com" type="email" required="#" id="user" >
+                </div>
+                <div class="form-group">
+                    <h5>PASSWORD</h5>
+                    <input placeholder="Enter password" type="password" required="#" id="pass" >
+                    <a href="#"><p class="forget">Forgot password?</p></a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                
+                <div class="account-exist">
+                  New To SugarCosmetic? <a href="signup.html" id="signup">Sign up</a>
+                </div>
+            </div>
+        </form>   
+    </div>
+    <!-- <script src="signIn.js"></script> -->
+</body>
+</html>
+
+<script>
+    var userData = JSON.parse(localStorage.getItem("userDatabase"));
+  console.log(userData)
+     var form = document.querySelector(".form");
+     form.addEventListener("submit",addDetails);
+
+  function addDetails(){
+      event.preventDefault()
+
+        var email = document.querySelector("#user").value
+        var password =document.querySelector("#pass").value
+
+        
+        for(var i=0; i<userData.length; i++){
+            if((email == userData[i].email) && (password == userData[i].password)){
+                 alert("login successfull");
+                window.location.href = "index.html";
+                break;
+            }
+            else{
+                alert("Invalid Email or Password");
+                break;
+            }
+        }
+  }
+  document.querySelector(".close").addEventListener("click",function(){
+    document.querySelector(".close").style.display="none"
+    window.location.href="index.html"
+    console.log(hello)
+  })
+
+</script>
