@@ -1,546 +1,1123 @@
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>SUGAR Cosmatic Clone</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
 		
+body * {
+font-family: 'Poppins', sans-serif;
+
+}
+
+	
+.Heading {
+
+height: auto;
+max-width: 100%;
+width: auto;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+gap: 45px;
+}
+.login {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.search {
+display: flex;
+justify-content: flex-end;
+align-items: center;
+padding: 15px;
+width: 40%;
+}
+input[type="text"] {
+padding: 15px;
+width: 100%;
+}
+
+input[type="button"] {
+/* width: 100%; */
+padding: 15px;
+margin-left: -15px;
+background-color: black;
+color: white;
+font-weight: 700;
+}
+.cart {
+    display: flex;
+    width: 15%;
+    justify-content: space-evenly;
+}
+.navbar {
+position: relative;
+display: -ms-flexbox;
+display: flex;
+gap: 50px;
+-ms-flex-wrap: wrap;
+flex-wrap: nowrap;
+-ms-flex-align: center;
+align-items: center;
+-ms-flex-pack: justify;
+justify-content: space-evenly;
+padding: 0.5rem 1rem;
+flex-direction: row;
+color: rgb(14, 14, 14);
+justify-content: flex-start;
+background-color: #ededed;
+}
+
+.container-fluid {
+width: 100%;
+
+margin-right: auto;
+margin-left: auto;
+}
+.nav-2 {
+display: flex;
+justify-content: space-evenly;
+width: 100%;
+padding-right: 39px;
+margin-right: 20px;
+margin-left: 20px;
+font-size: 15px;
+color: #d0d007;
+}
+.sort{
+border: none;
+background-color: black;
+text-decoration-line: none;
+cursor: pointer;
+font-size: 18px;
+color: #ffffff;
+margin-left: -26px;
+cursor: pointer;
+border-top-right-radius: 25px;    
+border-bottom-right-radius: 25px;
+}
+a {
+color: #000000;
+text-decoration: none;
+background-color: transparent;
+-webkit-text-decoration-skip: objects;
+}
+.logo {
+margin: 20px; 
+ margin-left: 30px;
+margin-right: 60px;
+}
+
+.navbar-brand {
+display: inline-block;    
+margin-right: 1rem;
+font-size: 1.rem;
+font-size: 15px;
+line-height: inherit;
+white-space: nowrap;
+color: rgb(16, 15, 15);
+}
+a.navbar-brand {
+  color: rgb(136 135 135);
+   font-family: monospace;
+   font-size: 14px;
+   padding-left: 15px;
+   font-weight: 600;
+   text-transform: uppercase;
+}
+a.navbar-brand:hover {
+text-shadow: 1px 1px 5px grey;
+
+}
+
+.Slider{
+
+height: auto;
+width: auto;
+text-align: center;
+} 
+
+.slider {
+position: relative;
+height: 100%;
+width: 100%;
+overflow:hidden;
+}
+.prev-arrow:hover, .next-arrow:hover {
+cursor: pointer;
+color: rgb(255, 5, 5)!important;
+}
+.prev-arrow {
+left: 70px;
+color: rgb(0, 55, 255)!important;
+}
+/*Окно со слайдами*/
+.slider-content {
+position: relative;		
+width: 100%;
+}
+
+/*Контейнер для слайдов (передвигаем)*/
+.slider-content-wrapper {
+display: flex;
+height:400px;
+transition: transform 0.5s ease-in-out;
+}
+
+/*Слайд*/
+.slider-content__item {
+flex: 1 0 100%;
+width: 100%;
+height: 100%;
+background-repeat: no-repeat;
+background-position: center;
+background-size: contain;
+font-size: 100px;
+color: rgba(0,0,0,0.2);
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+
+
+/* Блок с контролами */
+.slider-controls {
+padding:20px;
+text-align: center;
+}
+
+/* Блок с контролами внутри окна */
+.slider-content__controls {
+position:absolute;
+top:0;left:0;
+width: 100%;
+height: 100%;
+z-index:1;
+/*transform: translateY(-50%);*/
+/*padding:0 15px;*/
+}
+
+/* Arrows */
+.prev-arrow, .next-arrow {
+position:absolute;
+top:50%;
+transform: translateY(-50%);
+cursor: pointer;
+color:rgb(0, 0, 255);
+width: 10px;
+transition: all 0.3s;
+}
+.prev-arrow {left: 20px;}
+.next-arrow {right: 20px;}
+
+.prev-arrow:hover,
+.next-arrow:hover {
+cursor: pointer;
+color:rgba(248, 0, 0, 0.7);
+}
+
+/* Dots */
+.dots {
+position:absolute;
+display: flex;
+left:50%;
+transform: translateX(-50%);
+bottom: -25%;
+}
+
+.dot {
+cursor: pointer;
+width: 8px;
+height: 8px;
+margin-right: 4px;
+background-color: rgba(0,0,0, 0.3);
+/*box-shadow: 0 0 5px 0px rgba(0,0,0,0.9);*/
+border-radius: 50%;
+transition:all 0.3s;
+}
+
+.dot:last-child {margin-right: 0;}
+.dot:hover {background-color: rgb(255, 5, 5);}
+.dot--active {background-color: rgba(15, 7, 252, 0.5);}
+
+/* Buttons */
+button {
+cursor: pointer;
+margin-right: 8px;
+border:none;
+border-radius: 4px;
+padding:10px;
+background-color: #3066BE;
+color:#FFF;
+transition: all 0.5s;
+}
+button:last-child {margin-right: 0;}
+button:hover {background-color: #60AFFF;}
+button:focus {outline: none;}
+
+/* Mods */
+.disabled {
+background-color: #DCCFCF;
+color:#B0A8A8;
+cursor: default;
+pointer-events:none;
+}
+
+.d-none {display: none;}
+.active {opacity: 1;}
+.centered {
+position:relative;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);	
+}
+#sugarHome2{
+	width:100%;
+  
+	overflow: hidden;
+}
+@keyframes slidy {
+0% { left: 0%; }
+20% { left: 0%; }
+25% { left: -100%; }
+ 45% { left: -100%; } 
+50% { left: -200%; }
+70% { left: -200%; }
+75% { left: -300%; }
+95% { left: -300%; }
+100% { left: -400%; }
+}
+
+body { margin: 0; } 
+div#slider { overflow: hidden; }
+div#slider figure img { width: 20%; float: left; }
+div#slider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite; 
+}
+div#slider {
+	overflow: hidden;
+   
+}    
+
+
+.cont {
+width: auto;
+text-align: center;
+width: 95%;
+margin: auto;
+}
+	.bscont{
+		background-image: url(https://media.sugarcosmetics.com/upload/homePageBackGroundTexture.jpg);
+		border: 2px solid black;
+		/* height: 600px; */
+		width: auto;
+		text-align: center;
+	}
+	img.bsimg{
+	   
+		height: 300px;
+	}
+	.BESTSELLERS{
 		
-	<!-- GoogleFont -->
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+		display: grid;
+		grid-template-columns: repeat(4,1fr);
+		grid-template-rows: auto;
+		width: 80%;
+		margin: auto;
+		gap: 20px;
+	}
+	h2 {
+color: white;
 
-	<!-- css stylesheet -->
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
-
-	<!-- fontawesome -->
-	<script src="https://kit.fontawesome.com/fc9008eadf.js" crossorigin="anonymous"></script>
-
-	<!-- bootstrap -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-	</head>
-	<body>
-		<!-- heading -->
-	<section id="title">
-		<div class="top">
-
-			<div class="logo"> <a href="index.html"><img src="https://in.sugarcosmetics.com/desc-images/SUGARLogo1.png" alt=""></a> </div>
+padding: 20px;
+}
+p#add {
+margin-top: 20px;
+background-color: black;
+color: white;   
+margin: auto;
+padding: 10px;
+margin-top: 12px;
+}
+	.BESTSELLERS>div{
 			
-			<input type="search" placeholder="SEARCH"></a>
-			<button class="sort">Search</button></p> 
-			<div></div>
-			<div class="left">
-				<div class="nv-1" >
-					<div class="nav-2">
-					<div><img src="https://in.sugarcosmetics.com/desc-images/person.png" alt=""width="20" height="20"></div>
-					<div class="login">
-						<p> <a href="signin.html">Login</a> <a href="signup.html">Signup</a></p>
-					</div>  
-					</div>       
-					     
-					</div>                  
-					<div class="f-icon">
-					<div> <a href="wishList.html"><img src="icons8-loading-heart.gif" alt="" width="20" height="20"></a> </div></div>               
-					<div> <a href="cart.html"><img src="icons8-shopaholic-24.png" alt=""width="20" height="20"></a> </div>
-					<div><img src="icons8-discount-24.png" alt="" width="20" height="20"></div></div>               
-								
-					</div>
-		</div> 
-		<div class="container-fluid">
+		width: auto; 
+		background-color: white;
+		  
+	}
 
-			<!-- Nav Bar -->
+	.HOTDEALS {
+width: auto;
+display: grid;
+grid-template-columns: repeat(3,1fr);
+grid-template-rows: auto;
+width: 100%;
+margin: auto;
+gap: 40px;
 
-		<nav class="navbar">
-		<div class="search">			
-		</div>
-		<div>
-		<a class="navbar-brand" href="makeup_eyes.html">makeup</a>
-		<a class="navbar-brand" href="makeup_face.html">brush</a>
-		<a class="navbar-brand" href="makeup_lips.html">skincare</a>
-		<a class="navbar-brand" href="makeup_lips.html">trending</a>
-	    <a class="navbar-brand" href="makeup_lips.html">blog</a>
-		<a class="navbar-brand" href="makeup_lips.html">offers </a>
-		</div>				
-		</div>
-	</nav>
-	</section>
-	<!-- slider -->
-	<div id="slider" class="slider">
-		<div class="slider-content">
-			<div class="slider-content-wrapper">
-        <div class="slider-content__item image-1"><img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/1571460a-0b29-4920-8c80-7e37f048def4.jpg"  alt="Girl in a jacket" width="1350" height="300"> </div>
-				<div class="slider-content__item image-2"><img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/2726f64a-3b5b-4ca9-b066-2ed3d9245582.gif"  alt="Girl in a jacket" width="1350" height="300"></div>
-				<div class="slider-content__item image-3"><img src="https://d32baadbbpueqt.cloudfront.net/d53f8a36-fef3-45ea-b89e-ace53938287d.jpg"  alt="Girl in a jacket" width="1350" height="300"> </div>			
-				<div class="slider-content__item image-4"><img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/d9103d2b-af25-40c3-b41b-90538502b315.gif"  alt="Girl in a jacket" width="1350" height="300"></div>
-				<div class="slider-content__item image-5"> <img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/177972e0-4583-428b-b4db-da5546b71310.jpg" alt="Girl in a jacket" width="1350" height="300"></div>
-				<div class="slider-content__item image-6"><img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/36e134cb-da00-481a-9769-b975af151b46.jpg" alt=""width="1350" height="300"></div>
-			</div>
-		</div>
-	</div>
+}
+	.HOTDEALS>div{           
+		width: auto;  
+		max-width: 100%;
+		
+	}
+
+	img.hotimg {
+display: inline-block;
+height: auto;
+width: 100%;
+border-radius: 10px;
+}
+   h2.hoth2 {
+text-align: center;
+color: black;
+   }
+	.SUGARSTREAMING{
+		width: auto;  
+		display: grid;
+		grid-template-columns: repeat(5,1fr);
+		grid-template-rows: auto;
+		gap: 10px;
+	}
+	.SUGARSTREAMING>div{           
+	 width: auto; 
+	}
+	img.ss {
+border-radius: 10px;
+}
+.SHUKARHAISUGARHAI {
+
+ width: auto;
+margin: auto;
+width: 80%;
+}
+img.\.sukraimg {
+width: 80%;
+border-radius: 10px;
+height: 450px;
+object-fit: fill;
+object-position: bottom;
+}
+	.SHUKARHAISUGARHAI {
+text-align: center;
+width: auto;
+width: 100%;
+}
+.bscont2{
+		background-image: url(https://media.sugarcosmetics.com/upload/VTOBackgroungTexture.png);
+		border: 2px solid black;
+		/* height: 600px; */
+		width: auto;
+		text-align: center;
+	}
+#THISORTHAT{            
+display: grid;
+grid-template-columns: repeat(2,1fr);
+grid-template-rows: auto;
+width: 100%;
+}
+img.thimg {
+width: 100%;
+border-radius: 20px;
+}
+input[type="email"] {
+padding: 15px;
+width: 40%;
+margin: auto;
+}
+.Footer{
+text-align: center;
+height: auto;
+max-width: 100%;
+width: auto;
+/* display: flex; */
+justify-content: space-evenly;
+align-items: center;
+}
+#Explore{
+width: 95%;
+margin-bottom: 50px;
+}
+
+/* footer */
+.mainft {
+background-color: black;
+}
+img.social {
+width: 15px;
+}
+.sft {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.ftlogo {
+width: 10%;
+margin: auto;
+}
+.sft {
+width: 30%;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+}
+
+.nxft {
+display: flex;
+color: white;
+justify-content: space-between;
+width: 80%;
+margin: auto;
+}
+
+.slw {
+color: white;
+text-align: start;
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+.nwap {
+
+display: flex;
+justify-content: center;
+width: 80%;
+margin: auto;
+align-items: center;
+}
+.nwap1 {
+width: 30%;
+}
+
+img.nwapimg {
+width: 40%;
+
+}
+@media only screen and (min-width: 621px) and (max-width: 991px) {
+
+.cart {
+		display: none;
+		}
+		.search {
+		display: none;
+		}
+		.Heading {
+
+		  gap: 0px;
+}
+		.navbar{
+			display: none;
+		}
+		.BESTSELLERS{
+			grid-template-columns: repeat(2 ,1fr );
+		}
+
+		.HOTDEALS{     
+		 grid-template-columns: repeat(1,1fr);  
+		}
+
+		.SUGARSTREAMING{
+	  
+	  grid-template-columns: repeat(2,1fr);
+	 
+	 }
+	 #THISORTHAT{          
+   grid-template-columns: repeat(1,1fr);   
+	  }
+	}
+@media only screen and (min-width: 70px) and (max-width: 620px) {
+
+.cart {
+		display: none;
+		}
+		.search {
+		display: none;
+		}
+		.Heading {
+
+		  gap: 0px;
+}
+		.navbar{
+			display: none;
+		}
+		.BESTSELLERS{
+			grid-template-columns: repeat(1 ,1fr );
+		}
+		.HOTDEALS{     
+		 grid-template-columns: repeat(1,1fr);  
+		}
+
+		.SUGARSTREAMING{
+	  
+		grid-template-columns: repeat(1,1fr);
+	   
+	}
+	img.\.sukraimg {     
+		height: 200px;
+		width: 100%;    
+	  }
 	
+	#THISORTHAT{          
+   grid-template-columns: repeat(1,1fr);   
+	  }
+	  .sft {
+width: 100%;
 
-	
-	<!-- box-1 -->
-	<div class="Gotta">
-		<h3>REFER YOUR FRIENDS</h3>
+}
+.nxft {  
+
+width: 55%;  
+flex-direction: column;
+}
+
+.slw {
+
+flex-direction: column;
+}
+.nwap {
+
+width: 100%;
+flex-direction: column;
+}
+img.nwapimg {
+width: 80%;
+
+}
+.nwap1 {
+width: 50%;
+}
+.slider-content-wrapper {
+    height: 200px;
+}
+}
+
+
+   
+	</style>
+</head>
+<body>    
+<!-- section-I -->
+<section>
+
+	<div class="Heading">
+
+	 <div class="logo"><a href="index.html"><img src="https://in.sugarcosmetics.com/desc-images/SUGARLogo1.png" alt=""></a></div>
+	 <div class="search"><input type="text" placeholder="Try Liquid Lipstick">
+	<input type="button" value="SUBSCRIBE"></div>
+	 <div class="login"><img src="Image/person.png" alt=""width="20" height="20"><p> <a href="signin.html">Login/</a> <a href="signup.html">Signup</a></p> </div>
+	 <div class="cart">
+		<div> <a href="wishList.html"><img src="Image/icons8-loading-heart.gif" alt="" width="20" height="20"></a> </div>              
+		<div> <a href="cart.html"><img src="Image/icons8-shopaholic-24.png" alt=""width="20" height="20"></a> </div>
+		<div><img src="Image/icons8-discount-24.png" alt="" width="20" height="20"></div>
 	</div>
-	<div class="box-1">
-		<img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/f53f2d67-ea43-4959-abca-eba6d87fd598.jpg" alt="" width="1100" height="350">
 	</div>
-		<!-- box-2 -->
-		
-	<div class="box-2">  
-		<h3>METTLE PRIMING BALM</h3>  
-	<iframe width="960" height="400" src="https://www.youtube.com/embed/_TTJmiTiiOQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		
+	 
+		<div class="navbar">
+			<a class="navbar-brand" href="makeup_eyes.html">makeup</a>
+			<a class="navbar-brand" href="makeup_face.html">brush</a>
+			<a class="navbar-brand" href="makeup_lips.html">skincare</a>
+			<a class="navbar-brand" href="makeup_lips.html">trending</a>
+			<a class="navbar-brand" href="makeup_lips.html">blog</a>
+			<a class="navbar-brand" href="makeup_lips.html">offers </a>
+		</div>		
+
+	 </div>
+	</div>
+</section>
+
+<!-- section-II -->
+<section>
+	<div class="Slider">
+	 <!-- slider -->
+		<div id="slider" class="slider">
+			<!-- slider -->
+<div id="slider" class="slider">
+	<div class="slider-content">
+		<div class="slider-content-wrapper">
+	<div class="slider-content__item image">
+			<img id="slimg" class="slider-content__item image-1" src="https://d32baadbbpueqt.cloudfront.net/Homepage/8ea3b2e6-632d-4e90-88b2-0a74ab144d54.gif"  alt="Girl in a jacket" width="1473px" height=""> </div>
+			<div id="slimg" class="slider-content__item image-2"><img src="https://d32baadbbpueqt.cloudfront.net/Homepage/c26eb9de-aa19-4d89-ba04-0d58ac99e9a2.jpg"  alt="Girl in a jacket" width="1473px" height=""></div>
+			<div id="slimg" class="slider-content__item image-3"><img src="https://d32baadbbpueqt.cloudfront.net/Homepage/e352ada8-9b87-43ff-a84a-6ed425b0d55c.gif"  alt="Girl in a jacket" width="1473px" height=""> </div>			
+			<div id="slimg" class="slider-content__item image-4"><img src="https://d32baadbbpueqt.cloudfront.net/Homepage/b69d2fc2-53f5-45ed-8e89-8dcd108ed2b6.jpg"  alt="Girl in a jacket" width="1473px" height=""></div>
+			<div id="slimg" class="slider-content__item image-5"> <img src="https://d32baadbbpueqt.cloudfront.net/Homepage/9f8fe6f9-3ebe-4d1b-9b15-d5e5e642868b.jpg" alt="Girl in a jacket" width="1473px" height=""></div>
+			<div id="slimg" class="slider-content__item image-6"><img src="https://d32baadbbpueqt.cloudfront.net/Homepage/a41d5b02-1299-4e1a-b4e1-ba19484796b5.gif" alt=""width="1473px" height=""></div>			
+			
 		</div>
-
-
-
-		
-
-
-            <!-- beauty tips -->
-   <p class="para">QUICK BEAUTY TIPS WITH SUGAR</p>
-   <div id="sugarHome2">
-    <div id="sliderBox2">
-        <img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/61da7805-5421-41f2-902e-78b806d5cc51.jpg" alt="">
-        <img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/cc817aef-b0b7-46bf-b702-809d3c704672.jpg" alt="">
-        <img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/28809f45-ec81-4a9a-afef-bb3e6ae1bd35.jpg" alt="">
-        
-    </div>
-    
+	</div>
 </div>
 
-   <!-- hot deals -->
-   <p  class="para">HOT DEALS</p>
-   <div id="deals">
-       <div>
-           <img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/43554538-8dba-43b4-b34f-355f7e80bb32.jpg">
-       </div>
-       <div>
-           <img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/954beb96-5d0c-4086-9969-3baf039dcba2.jpg">
-       </div>
-       <div>
-           <img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/c8162b83-a143-440c-abcd-d020c740b477.jpg">
-       </div>
-    </div>
+		</div>
+		
+	</div>
+</section>
 
-    <!-- Quiz -->
-    <p class="para">ULTIMATE LIPSTICK QUIZ</p>
-    <div id="quiz">
-      <img src="https://sugar-mobile-application.s3-ap-south-1.amazonaws.com/be870b6c-d6f5-4567-8127-06e7fb26345d.jpg">
-    </div>
+<!-- sectionIII -->
+<section>
+	<div class="bscont">
+	<div><h2>-BESTSELLERS-</h2></div>
+	<div class="BESTSELLERS" >       
 
-    <!-- super savers -->
+	  <div>
+				<div>
+					<img class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-satin-lipstick-01-sophie-bright-fuchsia-pink-fuchsia-13706264477779.jpg?v=1619116135">
+				</div>
+				<div>
+					<p><b>METAL SATIN LIPSTICK-01 SOPHIE BRIGHT FUSHSIA... </b></p>
+					<span>₹ 999</span>
+					<span>₹ 499</span>
+					<span>(50% Off)</span>
+					<p id="add">ADD TO CART</p>
+				</div>
+			</div>
+			<div>
+				<div>
+					<img  class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-eye-warned-you-so-double-matte-eyeliner-03-green-book-marsh-green-13954500100179.jpg?v=1619116854">
+				</div>
+				<div>
+					<p><b>Eye Warned You So! Double Matte Eyeliner - 03 Green...</b></p>
+					<span>₹ 699</span>
+					<span>₹ 349</span>
+					<span>(50% Off)</span>
+					<p id="add">ADD TO CART</p>
+				</div>
+			</div>
+			<div>
+				<div>
+					<img class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-liquid-lipstick-01-lyra-cool-toned-plum-12067404054611.jpg?v=1619109871">
+				</div>
+				<div>
+					<p><b>Mettle Liquid Lipstick - 01 Lyra (Cool Toned Plum)</b></p>
+					<span>₹ 1199</span>
+					<span>₹ 599</span>
+					<span>(50% Off)</span>
+					<p id="add">ADD TO CART</p>
+				</div>
+			</div>
+			<div>
+				<div >
+					<img class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-matte-lipstick-05-hedone-orange-toned-red-12796087369811.jpg?v=1619110132">
+				</div>
+				<div>
+					<p><b>Mettle Matte Lipstick - 05 Hedone (Orange toned Red)</b></p>
+					<span>₹ 1099</span>
+					<span>₹ 549</span>
+					<span>(50% Off)</span>
+					<p id="add">ADD TO CART</p>
+				</div>
+			</div>
+	</div>
+</div>
+</section>
 
-    <p class="para"> SUPER SAVERS</p>
-    <div id="savers">
-        <div>
-            <div>
-                <img src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-satin-lipstick-01-sophie-bright-fuchsia-pink-fuchsia-13706264477779.jpg?v=1619116135">
-            </div>
-            <div>
-                <p><b>METAL SATIN LIPSTICK-01 SOPHIE BRIGHT FUSHSIA... </b></p>
-                <span>₹ 999</span>
-                <span>₹ 499</span>
-                <span>(50% Off)</span>
-                <p>ADD TO CART</p>
-            </div>
-        </div>
-        <div>
-            <div>
-                <img src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-eye-warned-you-so-double-matte-eyeliner-03-green-book-marsh-green-13954500100179.jpg?v=1619116854">
-            </div>
-            <div>
-                <p><b>Eye Warned You So! Double Matte Eyeliner - 03 Green...</b></p>
-                <span>₹ 699</span>
-                <span>₹ 349</span>
-                <span>(50% Off)</span>
-                <p>ADD TO CART</p>
-            </div>
-        </div>
-        <div>
-            <div>
-                <img src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-liquid-lipstick-01-lyra-cool-toned-plum-12067404054611.jpg?v=1619109871">
-            </div>
-            <div>
-                <p><b>Mettle Liquid Lipstick - 01 Lyra (Cool Toned Plum)</b></p>
-                <span>₹ 1199</span>
-                <span>₹ 599</span>
-                <span>(50% Off)</span>
-                <p>ADD TO CART</p>
-            </div>
-        </div>
-        <div>
-            <div>
-                <img src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-matte-lipstick-05-hedone-orange-toned-red-12796087369811.jpg?v=1619110132">
-            </div>
-            <div>
-                <p><b>Mettle Matte Lipstick - 05 Hedone (Orange toned Red)</b></p>
-                <span>₹ 1099</span>
-                <span>₹ 549</span>
-                <span>(50% Off)</span>
-                <p>ADD TO CART</p>
-            </div>
-        </div>
-    </div>
+<!-- section-IV-->
 
-    <!-- last black page  -->
-    <div id="black">
-         <div>
-             <div>
-                <img src="https://in.sugarcosmetics.com/Footer_sugar_icon.png">
+<section>
+	<div class="cont">
+		<div><h2 class="hoth2">-HOT DEALS-</h2></div>
+	<div class="HOTDEALS">
+		<div>
+			<img  class="hotimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/d9560110-40f7-4d14-a98d-5599b45a84ef.jpg" alt="">
+		</div>
+		<div><img  class="hotimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/d9560110-40f7-4d14-a98d-5599b45a84ef.jpg" alt=""></div>
+		<div> <img  class="hotimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/d9560110-40f7-4d14-a98d-5599b45a84ef.jpg" alt=""></div>
+	</div>
+	</div>
+</section>
+<!-- section-V -->
+<section>
+<div class="">
+	<div><h2 class="hoth2">- JUST-IN -</h2></div>
+	<div class="BESTSELLERS" >       
 
-             </div>
-         </div>
-         <div>
-            <div class="IconList">
-                <div>
-                    <img src="https://in.sugarcosmetics.com/desc-images/facebook.svg">
-                </div>
-                <!-- <div>
-                  <img src="">
-                </div> -->
-                <div>
-                  <img src="https://in.sugarcosmetics.com/desc-images/Instagram.svg">
-                </div>
-                <div>
-                  <img src="https://in.sugarcosmetics.com/desc-images/Pinterest.svg">
-                </div>
-                <div>
-                  <img src="https://in.sugarcosmetics.com/desc-images/Tumblr.svg">
-                </div>
-                <div>
-                  <img src="https://in.sugarcosmetics.com/desc-images/Youtube.svg">
-                </div>
-                <div>
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJireUq9-zRbgylR46MFKFnU_ZnEPv4N5tcw&usqp=CAU">
-                </div>
-           </div>
-         </div>
-         <div class="blackPara">
-             <div>
-                 <p>SUBSCRIBE TO OUR NEWSLETTER</p>
-             </div>
-             <div>
-                <p>GET THE NEW SUGAR APP TODAY.</p>
-            </div>
-         </div>
+	  <div>
+				<div>
+					<img class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-satin-lipstick-01-sophie-bright-fuchsia-pink-fuchsia-13706264477779.jpg?v=1619116135">
+				</div>
+				<div>
+					<p><b>METAL SATIN LIPSTICK-01 SOPHIE BRIGHT FUSHSIA... </b></p>
+					<span>₹ 999</span>
+					<span>₹ 499</span>
+					<span>(50% Off)</span>
+					<p id="add">ADD TO CART</p>
+				</div>
+			</div>
+			<div>
+				<div>
+					<img  class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-eye-warned-you-so-double-matte-eyeliner-03-green-book-marsh-green-13954500100179.jpg?v=1619116854">
+				</div>
+				<div>
+					<p><b>Eye Warned You So! Double Matte Eyeliner - 03 Green...</b></p>
+					<span>₹ 699</span>
+					<span>₹ 349</span>
+					<span>(50% Off)</span>
+					<p id="add">ADD TO CART</p>
+				</div>
+			</div>
+			<div>
+				<div>
+					<img class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-liquid-lipstick-01-lyra-cool-toned-plum-12067404054611.jpg?v=1619109871">
+				</div>
+				<div>
+					<p><b>Mettle Liquid Lipstick - 01 Lyra (Cool Toned Plum)</b></p>
+					<span>₹ 1199</span>
+					<span>₹ 599</span>
+					<span>(50% Off)</span>
+					<p id="add">ADD TO CART</p>
+				</div>
+			</div>
+			<div>
+				<div >
+					<img class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-matte-lipstick-05-hedone-orange-toned-red-12796087369811.jpg?v=1619110132">
+				</div>
+				<div>
+					<p><b>Mettle Matte Lipstick - 05 Hedone (Orange toned Red)</b></p>
+					<span>₹ 1099</span>
+					<span>₹ 549</span>
+					<span>(50% Off)</span>
+					<p id="add">ADD TO CART</p>
+				</div>
+			</div>
+	</div>
+</div>
+</section>
 
-         <div id="playStore">
-             <div>
-                 <input placeholder="Your email address">
-                 <button>SIGN UP</button>
-             </div>
-             <div>
-                 <div>
-                     <p class="color">Tap into a better shopping experience. </p>
-                    
-                     
-                 </div>
-                 <div>
-                     <img src="https://in.sugarcosmetics.com/playstore.png">
-                     <img src="https://in.sugarcosmetics.com/apple-store.png">
-                 </div>
-             </div>
-         </div>
-         <p>INFORMATION</p>
-         <div id="title">
-             <div>
-                 <span class="color">Contact Us</span>
-                 <span class="color">Terms & Conditions</span>
-                <span class="color">Returns</span>
-                <span class="color">FAQs</span>
-                <span class="color">About Us</span>
-             </div>
-         </div>
-         <p class=".p-2">GET IN TOUCH</p>
+   
+<!-- section-VII -->
+<section>
+	<div class="cont">
+	<div><h2 class="hoth2">-SUGAR STREAMING-</h2></div>
+	<div class="SUGARSTREAMING" >       
+		<div> <img class="ss" src="https://cdn4.fireworktv.com/medias/2022/11/1/1667298001-zniuqvtp/transcoded/240/video-output-D39F512C-CA85-413B-8446-3E6D459A5AAE.jpg.62.webp" alt=""></div>
+		<div> <img class="ss" src="https://cdn4.fireworktv.com/medias/2022/11/1/1667297542-vqnmedkg/transcoded/240/video-output-43209D35-4BC0-42E7-849D-93B3F1891EC4.jpg.62.webp" alt=""></div>
+		<div> <img class="ss" src="https://cdn4.fireworktv.com/medias/2022/11/1/1667298156-zyekfpni/transcoded/240/video-output-46918937-FE0D-463B-B321-CA272BD11D7B.jpg.62.webp" alt=""></div>
+		<div> <img  class="ss" src="https://cdn4.fireworktv.com/medias/2022/10/25/1666695204-pjtkurgm/transcoded/240/Untitled5.jpg.62.webp" alt=""></div>
+		<div> <img class="ss" src="https://cdn4.fireworktv.com/medias/2022/10/25/1666694805-hgxwusoz/transcoded/240/WhatsAppVideo2022-10-25at4.15.00PM1.jpg.62.webp" alt=""></div>
+	</div>
+</div>
+</section>
 
-         <div id="contact"> 
-             <div>
-                 
-                 <p> <img src="https://in.sugarcosmetics.com/desc-images/phone_android_white.svg"> Call us at</p>
-                 <p class="color"> 022-2847-5555</p>
-                 <p class="color"> 022-6805-6009</p>
-                 <p class="color-1"> Monday to Friday : 9 AM to 7 PM</p>
-                 
-             </div>
-             <div>
-                 <p class=".p-2">Support</p>
-                 <p class="color">hello@sugarcosmetics.com</p>
-             </div>
-             <div>
-                 <p class=".p-2">WORK WITH US</p>
-                 <p class="color">careers@sugarcosmetics.com</p>
-             </div>
-             <div>
-                 <p class=".p-2" >PRESS & MEDIA</p>
-                 <p class="color">pr@sugarcosmetics.com</p>
-             </div>
-             <div>
-                 <p class=".p-2">INFLUENCER COLLAB</p>
-                 <p class="color">JOIN US</p>
-             </div>
-         </div>
-         <div>
-             <!-- border -->
-         </div>
-         <div>
-             <p>Copyright © 2022 SUGAR Cosmetics. All rights reserved.</p>
-         </div>
-    </div>
+<!-- section-VII -->
 
-	</body>
-	</html>
+<section>
+	<div class="SHUKARHAISUGARHAI">
+		<h1 class="hoth2">-SHUKAR HAI, SUGAR HAI!-</h1>
+		<div>   <img  class=".sukraimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/b16a42b1-3e35-42bb-b122-a517e75c490e.jpg" alt=""></div>
+	</div>
+</section>
+<!-- section-IX -->
+<section>
+	<div class="cont">
+		<div><h2 class="hoth2">-TOPPICKSOF THE WEEK-</h2></div>
+	<div class="HOTDEALS">
+		<div><img  class="hotimg"  src="https://d32baadbbpueqt.cloudfront.net/Homepage/fd062254-fcc7-432d-94dc-9d7da4a6fc62.gif" alt=""></div>
+		<div><img  class="hotimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/9f9d2095-f019-4bb5-b961-db87fab439f6.jpg" alt=""></div>
+		<div><img  class="hotimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/c325cb7a-0c27-454d-a631-1e184b071e55.jpg" alt=""></div>
+	</div>
+	</div>
+</section>
+<!-- section-X-->
+
+	<section>
+		<div class="">
+			<div><h2 class="hoth2">-GIFTING -</h2></div>
+			<div class="BESTSELLERS" >       
 	
+			  <div>
+						<div>
+							<img class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-satin-lipstick-01-sophie-bright-fuchsia-pink-fuchsia-13706264477779.jpg?v=1619116135">
+						</div>
+						<div>
+							<p><b>METAL SATIN LIPSTICK-01 SOPHIE BRIGHT FUSHSIA... </b></p>
+							<span>₹ 999</span>
+							<span>₹ 499</span>
+							<span>(50% Off)</span>
+							<p id="add">ADD TO CART</p>
+						</div>
+					</div>
+					<div>
+						<div>
+							<img  class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-eye-warned-you-so-double-matte-eyeliner-03-green-book-marsh-green-13954500100179.jpg?v=1619116854">
+						</div>
+						<div>
+							<p><b>Eye Warned You So! Double Matte Eyeliner - 03 Green...</b></p>
+							<span>₹ 699</span>
+							<span>₹ 349</span>
+							<span>(50% Off)</span>
+							<p id="add">ADD TO CART</p>
+						</div>
+					</div>
+					<div>
+						<div>
+							<img class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-liquid-lipstick-01-lyra-cool-toned-plum-12067404054611.jpg?v=1619109871">
+						</div>
+						<div>
+							<p><b>Mettle Liquid Lipstick - 01 Lyra (Cool Toned Plum)</b></p>
+							<span>₹ 1199</span>
+							<span>₹ 599</span>
+							<span>(50% Off)</span>
+							<p id="add">ADD TO CART</p>
+						</div>
+					</div>
+					<div>
+						<div >
+							<img class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-matte-lipstick-05-hedone-orange-toned-red-12796087369811.jpg?v=1619110132">
+						</div>
+						<div>
+							<p><b>Mettle Matte Lipstick - 05 Hedone (Orange toned Red)</b></p>
+							<span>₹ 1099</span>
+							<span>₹ 549</span>
+							<span>(50% Off)</span>
+							<p id="add">ADD TO CART</p>
+						</div>
+					</div>
+			</div>
+		</div>
+		</section>
+<!-- section-XI -->
+<section>
+	<div class="SHUKARHAISUGARHAI">
+		<h1 >-REFER YOUR FRIENDS-</h1>
+		<div>   <img  class=".sukraimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/8bfe8bb4-002d-4097-a773-6af33325a594.jpg" alt=""></div>
+	</div>
+</section>
+<!-- section-XII -->
 
-	<script>
+	<section>
+		<div class="bscont2">
+			<div><h2 class="hoth2">-SUPER SAVERS-</h2></div>
+			<div class="BESTSELLERS" >       
+	
+			  <div>
+						<div>
+							<img class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-satin-lipstick-01-sophie-bright-fuchsia-pink-fuchsia-13706264477779.jpg?v=1619116135">
+						</div>
+						<div>
+							<p><b>METAL SATIN LIPSTICK-01 SOPHIE BRIGHT FUSHSIA... </b></p>
+							<span>₹ 999</span>
+							<span>₹ 499</span>
+							<span>(50% Off)</span>
+							<p id="add">ADD TO CART</p>
+						</div>
+					</div>
+					<div>
+						<div>
+							<img  class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-eye-warned-you-so-double-matte-eyeliner-03-green-book-marsh-green-13954500100179.jpg?v=1619116854">
+						</div>
+						<div>
+							<p><b>Eye Warned You So! Double Matte Eyeliner - 03 Green...</b></p>
+							<span>₹ 699</span>
+							<span>₹ 349</span>
+							<span>(50% Off)</span>
+							<p id="add">ADD TO CART</p>
+						</div>
+					</div>
+					<div>
+						<div>
+							<img class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-liquid-lipstick-01-lyra-cool-toned-plum-12067404054611.jpg?v=1619109871">
+						</div>
+						<div>
+							<p><b>Mettle Liquid Lipstick - 01 Lyra (Cool Toned Plum)</b></p>
+							<span>₹ 1199</span>
+							<span>₹ 599</span>
+							<span>(50% Off)</span>
+							<p id="add">ADD TO CART</p>
+						</div>
+					</div>
+					<div>
+						<div >
+							<img class="bsimg" src="https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-mettle-matte-lipstick-05-hedone-orange-toned-red-12796087369811.jpg?v=1619110132">
+						</div>
+						<div>
+							<p><b>Mettle Matte Lipstick - 05 Hedone (Orange toned Red)</b></p>
+							<span>₹ 1099</span>
+							<span>₹ 549</span>
+							<span>(50% Off)</span>
+							<p id="add">ADD TO CART</p>
+						</div>
+					</div>
+			</div>
+		</div>
+		</section>
+
+<!-- section-XIII -->
+<section>
+	<div class="Slider">
+		<h1>-NEWLY LAUNCHED-</h1>
+		<div id="sugarHome2">
+		  
+			<div id="slider">      
+				<div id="slider">
+				<figure>
+				<img id="slimg"  src="https://d32baadbbpueqt.cloudfront.net/Homepage/c26eb9de-aa19-4d89-ba04-0d58ac99e9a2.jpg"  alt="Girl in a jacket" width="1280" height="">   
+				<img  id="slimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/6985f902-c3fe-4a20-bc76-1658a9109fd1.jpg"  alt="Girl in a jacket" width="1280" height="">       
+				<img  id="slimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/c26eb9de-aa19-4d89-ba04-0d58ac99e9a2.jpg"  alt="Girl in a jacket" width="1280" height="">
+				<img  id="slimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/c26eb9de-aa19-4d89-ba04-0d58ac99e9a2.jpg" alt="Girl in a jacket" width="1280" height="">
+				<img  id="slimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/730cf92b-3d4a-4d08-bed8-db88e7911f32.jpg"  alt="Girl in a jacket" width="1280" height="">
+				</figure>
+				</div>        
+			</div> 
+			
+		</div>
+
+	</div>
+</section>
+
+ <!-- section-XIII -->
+ <section>
+	<div class="cont">
+	<div><h2 class="hoth2">-THIS OR THAT-</h2></div>
+	<div class="BESTSELLERS" id="THISORTHAT">       
+		<div><img  class="thimg"  src="https://d32baadbbpueqt.cloudfront.net/Homepage/d1b038a4-418a-4309-92b1-9aff3b4393ea.jpg" alt=""></div>
+		<div><img class="thimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/984514b9-81c3-4e2a-922e-7b18f42ef77f.jpg" alt=""></div>
+	   
+	</div>
+</div>
+</section>
+ <!-- section-XVI -->
+<!-- <section>
+	<div class="cont">
+	<div><h2>-SKINCARE BASICS-</h2></div>
+	<div class="BESTSELLERS" >       
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+</div>
+</section>
 
 
-		const slider = (function(){
-		 
-		 //const
-		 const slider = document.getElementById("slider"); // основная обертка
-		 console.log(slider);
-		 const sliderContent = document.querySelector(".slider-content"); // обертка для контейнера слайдов и контролов
-		 console.log(sliderContent);
-		 const sliderWrapper = document.querySelector(".slider-content-wrapper"); // контейнер для слайдов
-		 const elements = document.querySelectorAll(".slider-content__item"); // обертка для слайда
-		 const sliderContentControls = createHTMLElement("div", "slider-content__controls"); // блок контролов внутри sliderContent
-		 let dotsWrapper = null; // Обертка dots
-		 let prevButton = null; // Кнопки
-		 let nextButton = null;
-		 let autoButton = null;
-		 let leftArrow = null; // Стрелки
-		 let rightArrow = null;
-		 let intervalId = null; //идентификатор setInterval
-		 
-		 // data
-		 const itemsInfo = {
-			 offset: 0, // смещение контейнера со слайдами относительно начальной точки (первый слайд)
-			 position: {
-				 current: 0, // номер текущего слайда
-				 min: 0, // первый слайд
-				 max: elements.length - 1 // последний слайд	
-			 },
-			 intervalSpeed: 2000, // Скорость смены слайдов в авторежиме
-	 
-			 update: function(value) {
-				 this.position.current = value;
-				 this.offset = -value;
-			 },
-			 reset: function() {
-				 this.position.current = 0;
-				 this.offset = 0;
-			 }	
-		 };
-	 
-		 const controlsInfo = {
-			 buttonsEnabled: false,
-			 dotsEnabled: false,
-			 prevButtonDisabled: true,
-			 nextButtonDisabled: false
-		 };
-	 
-		 // Инициализация слайдера
-		 function init(props) {
-			 // let {buttonsEnabled, dotsEnabled} = controlsInfo;
-			 let {intervalSpeed, position, offset} = itemsInfo;
-			 
-			 // Проверка наличия элементов разметки
-			 if (slider && sliderContent && sliderWrapper && elements) {
-				 // Проверка входных параметров
-				 if (props && props.intervalSpeed) {
-					 intervalSpeed = props.intervalSpeed;
-				 }
-				 if (props && props.currentItem) {
-					 if ( parseInt(props.currentItem) >= position.min && parseInt(props.currentItem) <= position.max ) {
-						 position.current = props.currentItem;
-						 offset = - props.currentItem;	
-					 }
-				 }
-				 if (props && props.buttons) {
-					 controlsInfo.buttonsEnabled = true;
-				 }
-				 if (props && props.dots) {
-					 controlsInfo.dotsEnabled = true;
-				 }
+	<section>
+		<div class="cont">
+			<div><h2>-SUGAR BEAUTY BLOG-</h2></div>
+		<div class="HOTDEALS">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		</div>
+	</section>
+
+<section>
+	<div class="cont">
+	<div><h2>-MERCH STATION-</h2></div>
+	<div class="BESTSELLERS" >       
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+</div>
+</section> -->
+
+<section>
+	<div >
+	<div><h2  class="hoth2">-EXPLORE-</h2></div>
+	<div class="BESTSELLERS" id="Explore" >       
+		<div><img class="thimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/97722164-55b4-4030-a9f6-0219a9575a24.jpg" alt=""></div>
+		<div><img class="thimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/88ee8d58-7cc5-450a-953b-aa16ef190d52.jpg" alt=""></div>
+		<div><img class="thimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/a7b72adf-7e02-45c4-a208-552d46eefc4c.jpg" alt=""></div>
+		<div><img class="thimg" src="https://d32baadbbpueqt.cloudfront.net/Homepage/52b4f85e-f9e8-465a-a9a4-6f11e6b407aa.jpg" alt=""></div>
+	</div>
+</div>
+</section>
+
+
+<section>
+	<div class="mainft">
+	<div class="ftlogo"><img src="https://in.sugarcosmetics.com/Footer_sugar_icon.svg" alt="">
+	
+  </div>
+	<div class="sft">
+		 <img class="social" src="https://in.sugarcosmetics.com/desc-images/facebook.svg">          
+		  <img  class="social"src="https://in.sugarcosmetics.com/desc-images/Instagram.svg">            
+		  <img class="social" src="https://in.sugarcosmetics.com/desc-images/Pinterest.svg">            
+		  <img  class="social"src="https://in.sugarcosmetics.com/desc-images/Tumblr.svg"> 
+		  <img class="social" src="https://in.sugarcosmetics.com/desc-images/Youtube.svg"> 
+		  <img  class="social" src="https://in.sugarcosmetics.com/desc-images/Pinterest.svg">          
 				 
-				 _updateControlsInfo();
-				 _createControls(controlsInfo.dotsEnabled, controlsInfo.buttonsEnabled);
-				 _render();	
-			 } else {
-				 console.log("Разметка слайдера задана неверно. Проверьте наличие всех необходимых классов 'slider/slider-content/slider-wrapper/slider-content__item'");
-			 }
-		 }
-	 
-		 // Обновить свойства контролов
-		 function _updateControlsInfo() {
-			 const {current, min, max} = itemsInfo.position;
-			 controlsInfo.prevButtonDisabled = current > min ? false : true;
-			 controlsInfo.nextButtonDisabled = current < max ? false : true;
-		 }
-	 
-		 // Создание элементов разметки
-		 function _createControls(dots = false, buttons = false) {
-			 
-			 //Обертка для контролов
-			 sliderContent.append(sliderContentControls);
-	 
-			 // Контролы
-			 createArrows();
-			 buttons ? createButtons() : null;
-			 dots ? createDots() : null;
-			 
-			 // Arrows function
-			 function createArrows() {
-				 const dValueLeftArrow = "M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z";
-				 const dValueRightArrow = "M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z";
-				 const leftArrowSVG = createSVG(dValueLeftArrow);
-				 const rightArrowSVG = createSVG(dValueRightArrow);
-				 
-				 leftArrow = createHTMLElement("div", "prev-arrow");
-				 leftArrow.append(leftArrowSVG);
-				 leftArrow.addEventListener("click", () => updateItemsInfo(itemsInfo.position.current - 1))
-				 
-				 rightArrow = createHTMLElement("div", "next-arrow");
-				 rightArrow.append(rightArrowSVG);
-				 rightArrow.addEventListener("click", () => updateItemsInfo(itemsInfo.position.current + 1))
-	 
-				 sliderContentControls.append(leftArrow, rightArrow);
-				 
-				 // SVG function
-				 function createSVG(dValue, color="currentColor") {
-					 const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-					 svg.setAttribute("viewBox", "0 0 256 512");
-					 const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-					 path.setAttribute("fill", color);
-					 path.setAttribute("d", dValue);
-					 svg.appendChild(path);	
-					 return svg;
-				 }
-			 }
-	 
-			 // Dots function
-			 function createDots() {
-				 dotsWrapper = createHTMLElement("div", "dots");			
-				 for(let i = 0; i < itemsInfo.position.max + 1; i++) {
-					 const dot = document.createElement("div");
-					 dot.className = "dot";
-					 dot.addEventListener("click", function() {
-						 updateItemsInfo(i);
-					 })
-					 dotsWrapper.append(dot);		
-				 }
-				 sliderContentControls.append(dotsWrapper);	
-			 }
-			 
-			 // Buttons function
-			 function createButtons() {
-				 const controlsWrapper = createHTMLElement("div", "slider-controls");
-				 prevButton = createHTMLElement("button", "prev-control", "Prev");
-				 prevButton.addEventListener("click", () => updateItemsInfo(itemsInfo.position.current - 1))
-				 
-				 autoButton = createHTMLElement("button", "auto-control", "Auto");
-				 autoButton.addEventListener("click", () => {
-					 intervalId = setInterval(function(){
-						 if (itemsInfo.position.current < itemsInfo.position.max) {
-							 itemsInfo.update(itemsInfo.position.current + 1);
-						 } else {
-							 itemsInfo.reset();
-						 }
-						 _slideItem();
-					 }, itemsInfo.intervalSpeed)
-				 })
-	 
-				 nextButton = createHTMLElement("button", "next-control", "Next");
-				 nextButton.addEventListener("click", () => updateItemsInfo(itemsInfo.position.current + 1))
-	 
-				 controlsWrapper.append(prevButton, autoButton, nextButton);
-				 slider.append(controlsWrapper);
-			 }
-		 }
-	 
-		 // Задать класс для контролов (buttons, arrows)
-		 function setClass(options) {
-			 if (options) {
-				 options.forEach(({element, className, disabled}) => {
-					 if (element) {
-						 disabled ? element.classList.add(className) : element.classList.remove(className)	
-					 } else {
-						 console.log("Error: function setClass(): element = ", element);
-					 }
-				 })
-			 }
-		 }
-	 
-		 // Обновить значения слайдера
-		 function updateItemsInfo(value) {
-			 itemsInfo.update(value);
-			 _slideItem(true);	
-		 }
-	 
-		 // Отобразить элементы
-		 function _render() {
-			 const {prevButtonDisabled, nextButtonDisabled} = controlsInfo;
-			 let controlsArray = [
-				 {element: leftArrow, className: "d-none", disabled: prevButtonDisabled},
-				 {element: rightArrow, className: "d-none", disabled: nextButtonDisabled}
-			 ];
-			 if (controlsInfo.buttonsEnabled) {
-				 controlsArray = [
-					 ...controlsArray, 
-					 {element:prevButton, className: "disabled", disabled: prevButtonDisabled},
-					 {element:nextButton, className: "disabled", disabled: nextButtonDisabled}
-				 ];
-			 }
-			 
-			 // Отображаем/скрываем контроллы
-			 setClass(controlsArray);
-	 
-			 // Передвигаем слайдер
-			 sliderWrapper.style.transform = `translateX(${itemsInfo.offset*100}%)`;	
-			 
-			 // Задаем активный элемент для точек (dot)
-			 if (controlsInfo.dotsEnabled) {
-				 if (document.querySelector(".dot--active")) {
-					 document.querySelector(".dot--active").classList.remove("dot--active");	
-				 }
-				 dotsWrapper.children[itemsInfo.position.current].classList.add("dot--active");
-			 }
-		 }
-	 
-		 // Переместить слайд
-		 function _slideItem(autoMode = false) {
-			 if (autoMode && intervalId) {
-				 clearInterval(intervalId);
-			 }
-			 _updateControlsInfo();
-			 _render();
-		 }
-	 
-		 // Создать HTML разметку для элемента
-		 function createHTMLElement(tagName="div", className, innerHTML) {
-			 const element = document.createElement(tagName);
-			 className ? element.className = className : null;
-			 innerHTML ? element.innerHTML = innerHTML : null;
-			 return element;
-		 }
-	 
-		 // Доступные методы
-		 return {init};
-	 }())
-	 
-	 slider.init({
-		 // intervalSpeed: 1000,
-		 currentItem: 0,
-		 buttons: true,
-		 dots: true
-	 });
-	 
-	  </script>
+		  <img class="social" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJireUq9-zRbgylR46MFKFnU_ZnEPv4N5tcw&usqp=CAU"></ul>
+	   
+	</div>
+	<hr/>
+
+	<div class="nxft">       
+	<ul>Stores</ul>
+	<ul>Terma & Conditions</ul>
+	<ul>Returns</ul>
+	<ul>FAQs</ul>
+	<ul>About Us</ul>       
+</div>
+<hr/>
+<div>
+
+<div class="slw" style="color: white; ">
+	<div>
+	<h1> GET IN TOUCH </h1>
+	<h1"> Call us At </h1>
+	<h3 > 1800-209-9933 </h3>
+	<h4 > Monday to Friday : 9 AM to 7 PM </h4>
+</div>
+
+<div><h3>Support</h3> 
+<p>hello@sugarcosmetics.com</p></div>
+<div><h3>Support</h3> 
+<p>hello@sugarcosmetics.com</p></div>
+<div><h3>Support</h3> 
+<p>hello@sugarcosmetics.com</p></div>
+<div><h3>Support</h3> 
+<p>hello@sugarcosmetics.com</p></div>
+</div>
+<hr/>
+
+
+
+
+<div class="nwap" style="color: white; text-align: start;" >
+
+<div class="nwap1"  > 
+	 <h3>GET THE NEW SUGAR APP TODAY.</h3>
+		<p>Tap into a better shopping experience.</p>
+	</div>
+
+	<div class="nwap1">
+
+	<img class="nwapimg" src="https://in.sugarcosmetics.com/playstore.png">
+	<img class="nwapimg" src="https://in.sugarcosmetics.com/apple-store.png">
+	</div>
+
+
+</div>
+<hr>
+
+<div style="color: white; text-align: start;">
+	<p style="text-align: center;">Copyright © 2022 SUGAR Cosmetics. All rights reserved.</p>
+</div>
+</div>
+</div>
+
+<div>
+
+</div>
+</div>
+</div>
+
+</section>
+
+</body>
+</html>
+
+<script src="slider.js"></script>
+
+  
