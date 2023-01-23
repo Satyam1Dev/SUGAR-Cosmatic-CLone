@@ -1,239 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      
       * {
-      color: #888888;
-      font-family: monospace;
-      font-size: 16px;
-          }
-          .wrapper{
-     
-      padding: 70px;
-      width: 50%;
-    
-     height:auto;
-      padding:50px 25px 50px; 
-      box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
-      margin: auto;
-      text-align: start;
-      background-image: url(https://in.sugarcosmetics.com/Login_bg.svg);
-  }
-  input.name{
-      padding: 13px;
-      width: 70%;
-      background-color: aliceblue;
-      border: solid 1px #dc9ccd;
-      border-radius: 8px;
-  }
-  input.email{
-      padding: 13px;
-      width: 70%;
-      background-color: aliceblue;
-      border: solid 1px #dc9ccd;
-      border-radius: 8px;
-     
-  }
-  input.password{
-    padding: 13px;
-      width: 70%;
-      background-color: aliceblue;
-      border: solid 1px #dc9ccd;
-      border-radius: 8px;
-  }
- 
-  .signin {
-      width: 70%;
-      text-align: inherit;
-      margin-left: 189px;
-  }
-  
-  p.forget {
-      font-size: 20px;
-      color: #898c8b;
-     
-  }
-  a {
-      text-decoration: none;
-  }
-  button.btn {
-      padding: 13px;
-      width: 20%;
-      background-color: #d89ccf;
-      color: aliceblue;
-      font-size: 15px;
-      margin-left: 80px;
-      border: solid 1px #e09dcd;
-      cursor: pointer;
-  }
-  .account-exist {
-      padding-top: 20px;
-     
-  }
-  h5 {
-    color: #7a7678;
-}
-.form-group{
-    display: flex;
-    flex-direction: column;
-}
-.form-group {
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
-    flex-wrap: wrap;
-}
-a#login {
-    font-size: 17px;
-    color: #c57cf6;
-}
+        color: #000000;
+        font-family: sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .wrapper .form-group input:focus {
+        outline: none;
+      }
 
+      .signup > div {
+        margin-bottom: 10px;
+        text-align: start;
+      }
 
+      .account-exist {
+        text-align: center;
+        margin-top: 20px;
+      }
 
+      small {
+        color: red;
+        text-align: center;
+      }
 
-.headline h1{
-    text-align: center;
-    font-size: 30px;
-    color: white;
-}
-.para{
-    text-align: center;
-    /* font-size: 18px;
-    width:300px;
-    /* margin-left: 90px; */
-    /* margin-bottom: 75px; */ 
-}
-.wrapper .form-group input:focus{
-  outline: none;
-}
+      .close {
+        cursor: pointer;
+        color: white;
+        font-size: 20px;
+        margin-top: -45px;
+      }
 
-/* .headline{
-   margin-bottom:50px ;
-} */
-.signup>div{
-    margin-bottom: 10px;
-}    
+      h5 {
+        margin: 15px 0px 5px 0px;
+      }
 
+      .wrapper {
+        box-shadow: rgba(44, 43, 43, 0.16) 0px 1px 4px,
+          rgb(51, 51, 51) 0px 0px 0px 3px;
+        width: 30%;
+        max-width: 100%;
+        margin: auto;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: start;
+        margin-top: 50px;
+      }
 
-.account-exist{
-    text-align: center;
-    margin-top: 20px;
-}
+      a#signup {
+        color: #0f0548;
+        font-size: 20px;
+        font-weight: 600;
+      }
 
-small{
-    color:red;
-    text-align: center;
-}
+      div#img .form-group input:focus {
+        outline: none;
+      }
 
-.close{
-    cursor: pointer;
-    color: white;
-    font-size: 20px;
-    margin-top: -45px;
-}
- 
+      form.form {
+        text-align: start;
+      }
 
+      input.name,
+      input.email,
+      input.password {
+        padding: 15px;
+        width: 90%;
+        background-color: #f1fcfc;
+        border: solid 2px #1b1919;
+        border-radius: 10px;
+        color: white;
+      }
 
+      h1 {
+            font-size: 35px;
+            color: #615d59;
+        }
+
+      .headline {
+        text-align: center;
+        color: #888888;
+        margin-top: -40px;
+      }
+
+      .signup {
+        width: 70%;
+        text-align: inherit;
+        margin-left: 90px;
+        margin: auto;
+      }
+
+      p.forget {
+        font-size: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: blue;
+      }
+
+      button.btn {
+        padding: 10px;
+        width: 40%;
+        background-color: #120537;
+        color: rgb(255, 255, 255);
+        font-size: 15px;
+        border: solid 1px #000000;
+        cursor: pointer;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+
+      h5.forget {
+        text-align: center;
+        color: blue;
+      }
+
+      .account-exist {
+        padding: 30px 0px 20px 0px;
+        font-family: monospace;
+        font-weight: 600;
+      }
+
+      h2.close {
+        margin: 0px;
+        /* padding: 40px; */
+        padding-left: -4px;
+        padding-top: 10px;
+        cursor: pointer;
+      }
+
+      #form {
+        /* background-color: #182834; */
+        text-align: center;
+      }
+      .para {
+        text-align: start;
+        margin-left: 60px;
+        font-size: 20px;
+      }
+
+      @media screen and (max-width: 780px) {
+        .wrapper {
+          width: 90%;
+          margin: auto;
+          height: 100%;
+        }
+        button.btn {
+          width: 40%;
+        }
+      }
     </style>
-   
-    
-</head>
-   
-<body>
-    <div class="wrapper"> 
+  </head>
+
+  <body>
+    <div class="wrapper">
       <h2 class="close">X</h2>
-         <div class="headline">
-             <h1>Sign up</h1>
-             <div class="para">You can buy SugarCosmetic products on your own wish</div>
-         </div>
-         <form class="form" name="myForm">
-            <div class="signup">
-               <div class="form-group">
-                  <h5>FULL NAME</h5>
-                  <input placeholder="Enter your full name" type="text" class="name">
-               </div>
+      <div class="headline">
+        <h1>Sign up!</h1>
+        <!-- <div class="para">
+          You can buy SugarCosmetic products on your own wish
+        </div> -->
+      </div>
+      <form class="form" name="myForm">
+        <div class="signup">
+          <div class="form-group">
+            <h5>FULL NAME</h5>
+            <input
+              placeholder="Enter your full name"
+              type="text"
+              class="name"
+            />
+          </div>
 
-               <div class="form-group">
-                <h5>EMAIL</h5>   
-                <input placeholder="name@email.com" type="email" class="email">
-              </div>
-              
-              <div class="form-group">
-                <h5>PASSWORD</h5>
-                <input placeholder="Create password" type="password" class="password">
-                <h5>Between 8 and 72 characters</h5>
-              </div>
+          <div class="form-group">
+            <h5>EMAIL</h5>
+            <input placeholder="name@email.com" type="email" class="email" />
+          </div>
 
-              <button type="submit" class="btn">Signup</button>
-              
-              <div class="account-exist">
-                Already on SugarCosmetic? <a href="signin.html" id="login">Log in</a>
-              </div>
-            </div>
+          <div class="form-group">
+            <h5>PASSWORD</h5>
+            <input
+              placeholder="Create password"
+              type="password"
+              class="password"
+            />
+            <h5>Between 8 and 72 characters</h5>
+          </div>
 
-         </form>
+          <button type="submit" class="btn">Signup</button>
+
+          <div class="account-exist">
+            Already on SugarCosmetic?
+            <a href="signin.html" id="login">Log in</a>
+          </div>
+        </div>
+      </form>
     </div>
-
-  
-</body>
+  </body>
 </html>
 
 <script>
-  document.querySelector(".form").addEventListener("submit",addData);
+  document.querySelector(".form").addEventListener("submit", addData);
 
-var userData = JSON.parse(localStorage.getItem("userDatabase")) || [];
-console.log(userDatabase)
-function addData(event){
+  var userData = JSON.parse(localStorage.getItem("userDatabase")) || [];
+  console.log(userDatabase);
+  function addData(event) {
     event.preventDefault();
 
-      var name = document.querySelector(".name").value;
-      var email = document.querySelector(".email").value;
-      var password = document.querySelector(".password").value;
+    var name = document.querySelector(".name").value;
+    var email = document.querySelector(".email").value;
+    var password = document.querySelector(".password").value;
 
-    if(name==""){
-        alert("username should not be empty");
-    } 
-    if(name.length<=2 && name.length>0){
-        alert("username is too short");
+    if (name == "") {
+      alert("username should not be empty");
     }
-    else if(email.length==""){
-        alert("please fill your email");
-    }
-    else if(email.length<=10){
-        alert("please fill a valid email");
-    }
-    else if(password==""){
-        alert("please fill password");
-    }
-    else if(password.length<=6)
-    {
-        alert("password length must be minimum 8 character");
-    }
-    else{
+    if (name.length <= 2 && name.length > 0) {
+      alert("username is too short");
+    } else if (email.length == "") {
+      alert("please fill your email");
+    } else if (email.length <= 10) {
+      alert("please fill a valid email");
+    } else if (password == "") {
+      alert("please fill password");
+    } else if (password.length <= 6) {
+      alert("password length must be minimum 8 character");
+    } else {
+      var userObj = {
+        name: name,
+        email: email,
+        password: password,
+      };
 
-        var userObj = {
-          name:name,
-          email:email,
-          password:password,
-        };
-      
-        userData.push(userObj);
-       // console.log(userData);
-        localStorage.setItem("userDatabase", JSON.stringify(userData));
+      userData.push(userObj);
+      // console.log(userData);
+      localStorage.setItem("userDatabase", JSON.stringify(userData));
 
       alert("Register successfully");
-      window.location.href="signin.html";
-
+      window.location.href = "signin.html";
     }
- }
-   document.querySelector(".close").addEventListener("click",function(){
-    document.querySelector(".wrapper").style.display="none"
-    window.location.href="index.html"
-})
-
+  }
+  document.querySelector(".close").addEventListener("click", function () {
+    document.querySelector(".wrapper").style.display = "none";
+    window.location.href = "index.html";
+  });
 </script>
